@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <div id="login-card" class="card card-block">
+      <h4>Login</h4>
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+        <input class="form-control spacer" placeholder="username" [(ngModel)]="creds.username" name="username" [disabled]="loginLoading" required />
+        <input class="form-control spacer" placeholder="password" type="password" [(ngModel)]="creds.password" name="password" [disabled]="loginLoading" required />
+        
+        <div *ngIf="!loginLoading">
+          <button type="submit" class="btn btn-primary spacer" [disabled]="!loginForm.form.valid || loginLoading">Login</button>
+          <div *ngIf="errorMessage" class="alert alert-danger spacer">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error!</strong> {{errorMessage}}
+          </div>
+        </div>
+        <div *ngIf="loginLoading" style="text-align: center">
+          <i class="fa fa-spinner fa-spin fa-3x" aria-hidden="true"></i>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-1"></div>
+</div>

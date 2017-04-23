@@ -1,0 +1,15 @@
+<!-- Loading Spinner -->
+<div *ngIf="homeLoading" class="center-page">
+  <div id="loading-spinner">
+    <i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw"></i>
+  </div>
+</div>
+
+<!-- Main Page -->
+<div *ngIf="!homeLoading">
+  <div class="container">
+    <div class="row">
+      <h1>Welcome</h1>
+    </div>
+  </div>
+</div>
