@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService, User, Broadcaster } from 'sarlacc-angular-client';
 
+declare var SockJS: any;
+declare var Stomp: any;
+
 @Component({
   moduleId: module.id,
   selector: 'home',
@@ -32,7 +35,25 @@ export class HomeComponent implements OnInit {
 
     this.listenForLogin();
     this.listenForLogout();
+
+    this.listenForData();
   }
+
+  
+
+  listenForData(): void {
+
+    var socket = new SockJS('http://localhost:8080/sensor-data-websocket');
+    var stompClient = Stomp.over(socket);
+    stompClient.connect({}, (frame:any) => {
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/sensor', (res:any) => {
+            console.log(JSON.parse(res.body));
+        });
+    });
+
+  }
+
 
   listenForLogin(): void {
    this.broadcaster.on<string>(this.userSvc.LOGIN_BCAST)
