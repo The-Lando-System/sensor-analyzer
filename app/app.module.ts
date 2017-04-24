@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import 'hammerjs/hammer.js';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { Logger } from 'angular2-logger/core';
+import { ChartsModule } from 'ng2-charts';
 
 import { UserService, Broadcaster } from 'sarlacc-angular-client';
 import { AppComponent }  from './app.component';
@@ -20,6 +21,7 @@ import { Globals } from './globals';
     BrowserModule,
     FormsModule,
     HttpModule,
+    ChartsModule,
     RouterModule.forRoot([
       {
         path: '',

@@ -30,6 +30,8 @@
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
       'angular2-cookie': 'npm:angular2-cookie',
       'angular2-logger': 'npm:angular2-logger',
+      'ng2-charts':'npm:ng2-charts/bundles/ng2-charts.umd.js',
+
 
       "sarlacc-angular-client": "npm:sarlacc-angular-client/bundles/sarlacc-client.umd.js"
     },
