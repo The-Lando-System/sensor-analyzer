@@ -2,6 +2,14 @@
     color: white;
 }
 
+.connected-color {
+    color: #e1ffe0;
+}
+
+.disconnected-color {
+    color: #f9d9d4;
+}
+
 .navbar-brand:visited {
     color: white;
 }

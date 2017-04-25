@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   timestamps: string[] = ['','','','','','','','','',''];
 
   public lineChartData:Array<any> = [
-    {data: this.sensorValues, label: 'Series A'}
+    {data: this.sensorValues, label: ''}
   ];
   public lineChartLabels:Array<any> = this.timestamps;
   public lineChartOptions:any = {
@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit {
         this.addDataToEndOfArray(this.sensorValues,data.sensorValue);
 
         this.lineChartData = [
-          {data: this.sensorValues, label: 'Series A'}
+          {data: this.sensorValues, label: data.sensorName}
         ];
 
         this.lineChartLabels = this.sensorValues;
