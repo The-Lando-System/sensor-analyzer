@@ -5,7 +5,19 @@
   <a class="navbar-brand inverse-color" href="#" routerLink="">{{welcome}}</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto"></ul>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" style="margin-left: 30px">
+        <a class="nav-link" href="#">
+          <span *ngIf="connected" class="inverse-color"><i class="fa fa-check-circle" aria-hidden="true"></i> Connected</span>
+          <span *ngIf="!connected" class="inverse-color"><i class="fa fa-times-circle" aria-hidden="true"></i> Disconnected</span>
+        </a>
+      </li>
+      <li class="nav-item" style="margin-left: 10px">
+        <a class="nav-link btn btn-outline-secondary" href="#">
+          <span class="inverse-color">Reconnect</span>
+        </a>
+      </li>
+    </ul>
     <ul class="navbar-nav">
       <li *ngIf="user" class="nav-item">
         <a class="nav-link" [attr.href]="sarlaccUrl">

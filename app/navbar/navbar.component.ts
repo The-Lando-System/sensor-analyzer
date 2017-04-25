@@ -15,6 +15,8 @@ export class NavbarComponent implements OnInit {
   tokenUrl = this.globals.sarlacc_domain + '/token/';
   sarlaccUrl = '';
 
+  connected = false;
+
   constructor(
     private globals: Globals,
     private userService: UserService,
@@ -29,6 +31,7 @@ export class NavbarComponent implements OnInit {
     }).catch((error:string) => {});
 
     this.listenForLogin();
+    this.listenForConnectionStatus();
   }
 
   logout(): void {
@@ -47,6 +50,17 @@ export class NavbarComponent implements OnInit {
         this.user = user;
         this.sarlaccUrl = this.tokenUrl + this.userService.getToken().access_token;
       }).catch((error:string) => {});
+    });
+  }
+
+  listenForConnectionStatus(): void {
+    this.broadcaster.on<string>("CONN_STATUS")
+    .subscribe(message => {
+      if (message === "CONNECTED"){
+        this.connected = true;
+      } else {
+        this.connected = false;
+      }
     });
   }
 }

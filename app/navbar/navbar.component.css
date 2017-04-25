@@ -5,3 +5,12 @@
 .navbar-brand:visited {
     color: white;
 }
+
+.btn:hover {
+    background-color: #14cc6a;
+    border: none;
+}
+
+.btn {
+    border: none;
+}

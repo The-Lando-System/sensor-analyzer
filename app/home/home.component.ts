@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   user: User;
 
+  connected = false;
+
   stompClient: any;
   sensorData: any[] = [];
   sensorValues: number[] = [0,0,0,0,0,0,0,0,0,0];
@@ -63,18 +65,21 @@ export class HomeComponent implements OnInit {
     this.listenForLogin();
     this.listenForLogout();
 
-    this.listenForData();
+    this.connect();
   }
 
   
 
-  listenForData(): void {
-
+  connect(): void {
     var socket = new SockJS('http://localhost:8080/sensor-data-websocket');
     this.stompClient = Stomp.over(socket);
     this.stompClient.connect({}, (frame:any) => {
-        console.log('Connected: ' + frame);
-        this.subscribe();
+      console.log('Connected: ' + frame);
+      this.broadcaster.broadcast("CONN_STATUS","CONNECTED");
+      this.subscribe();
+    }, (err:any) => {
+      console.log(err);
+      this.broadcaster.broadcast("CONN_STATUS","DISCONNECTED");
     });
 
   }
