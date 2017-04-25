@@ -66,9 +66,8 @@ export class HomeComponent implements OnInit {
     this.listenForLogout();
 
     this.connect();
+    this.listenForReconnect();
   }
-
-  
 
   connect(): void {
     var socket = new SockJS('http://localhost:8080/sensor-data-websocket');
@@ -81,7 +80,13 @@ export class HomeComponent implements OnInit {
       console.log(err);
       this.broadcaster.broadcast("CONN_STATUS","DISCONNECTED");
     });
+  }
 
+  listenForReconnect(): void {
+    this.broadcaster.on<string>("RECONNECT")
+    .subscribe(message => {
+      this.connect();
+    });
   }
 
   subscribe():void {

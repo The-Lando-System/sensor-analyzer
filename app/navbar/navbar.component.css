@@ -6,11 +6,6 @@
     color: white;
 }
 
-.btn:hover {
-    background-color: #14cc6a;
-    border: none;
-}
-
-.btn {
-    border: none;
+.btn:hover{
+    background-color: #4a6da5;
 }

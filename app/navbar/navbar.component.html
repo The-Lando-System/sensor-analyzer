@@ -7,14 +7,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" style="margin-left: 30px">
-        <a class="nav-link" href="#">
+        <a class="nav-link">
           <span *ngIf="connected" class="inverse-color"><i class="fa fa-check-circle" aria-hidden="true"></i> Connected</span>
           <span *ngIf="!connected" class="inverse-color"><i class="fa fa-times-circle" aria-hidden="true"></i> Disconnected</span>
         </a>
       </li>
-      <li class="nav-item" style="margin-left: 10px">
-        <a class="nav-link btn btn-outline-secondary" href="#">
-          <span class="inverse-color">Reconnect</span>
+      <li class="nav-item" style="margin-left: 10px;">
+        <a class="nav-link btn btn-outline-secondary" href="#" (click)="reconnect()">
+          <span class="inverse-color"><i class="fa fa-bolt" aria-hidden="true"></i> Reconnect</span>
         </a>
       </li>
     </ul>

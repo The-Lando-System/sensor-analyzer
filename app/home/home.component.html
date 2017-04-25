@@ -7,22 +7,7 @@
 
 <!-- Main Page -->
 <div *ngIf="!homeLoading">
-
-  <!-- Chart Status -->
-  <div class="row">
-    <!--<div class="col-md-6">
-      <div *ngIf="connected" class="alert alert-success" role="alert">
-        You are <strong>Connected</strong>
-      </div>
-      <div *ngIf="!connected" class="alert alert-danger" role="alert">
-        You are <strong>Disconnected</strong>
-      </div>
-    </div>-->
-    <div class="col-md-6">
-      <button class="btn btn-secondary" (click)="connect()">Reconnect</button>
-    </div>
-  </div>
-
+  
   <!-- Chart -->
   <div class="row">
     <div class="col-md-12" style="max-height:100%; overflow:auto">

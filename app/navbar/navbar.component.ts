@@ -63,4 +63,9 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
+
+  reconnect(): void {
+    event.preventDefault();
+    this.broadcaster.broadcast("RECONNECT",true);
+  }
 }
